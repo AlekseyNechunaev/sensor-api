@@ -6,4 +6,6 @@ import ru.nechunaev.entity.Sensor;
 
 @Repository
 public interface SensorRepository extends JpaRepository<Sensor, Long> {
+
+    boolean existsByName(String name);
 }
