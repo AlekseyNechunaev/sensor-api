@@ -1,13 +1,12 @@
 package ru.nechunaev.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.nechunaev.constants.Paths;
 
 @RestController
+@RequestMapping(Paths.Sensors.SENSOR)
 public class SensorController {
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello!";
-    }
+
 }
