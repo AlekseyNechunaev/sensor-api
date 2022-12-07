@@ -6,4 +6,6 @@ import ru.nechunaev.entity.Measurement;
 
 @Repository
 public interface MeasurementRepository extends JpaRepository<Measurement, Long> {
+
+    int countALlByIsRainingIs(boolean isRaining);
 }

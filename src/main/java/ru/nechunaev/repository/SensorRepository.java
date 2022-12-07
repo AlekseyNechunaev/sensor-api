@@ -8,4 +8,6 @@ import ru.nechunaev.entity.Sensor;
 public interface SensorRepository extends JpaRepository<Sensor, Long> {
 
     boolean existsByName(String name);
+
+    Sensor findByName(String name);
 }

@@ -32,10 +32,6 @@ public class Measurement {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public float getValue() {
         return value;
     }
@@ -64,7 +60,4 @@ public class Measurement {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
 }

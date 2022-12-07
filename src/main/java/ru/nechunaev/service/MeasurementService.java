@@ -12,5 +12,5 @@ public interface MeasurementService {
 
     List<Measurement> findAll();
 
-    int findRainyDaysCount();
+    int findIsRainingDaysCount(boolean raining);
 }
