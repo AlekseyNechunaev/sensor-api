@@ -30,7 +30,7 @@ public class MeasurementServiceImpl implements MeasurementService {
     public Measurement save(Measurement measurement) {
         String sensorName = measurement.getSensor().getName();
         if (!sensorRepository.existsByName(sensorName)) {
-            throw new SensorNotFoundException();
+            throw new SensorNotFoundException("sensor with name" + sensorName + " not found");
         }
         Sensor sensor = sensorRepository.findByName(sensorName);
         measurement.setSensor(sensor);
@@ -41,7 +41,8 @@ public class MeasurementServiceImpl implements MeasurementService {
     @Override
     @Transactional(readOnly = true)
     public Measurement findById(Long id) {
-        return measurementRepository.findById(id).orElseThrow(MeasurementNotFoundException::new);
+        return measurementRepository.findById(id).orElseThrow(() ->
+                new MeasurementNotFoundException("measurement with this id = " + id + "not found"));
     }
 
     @Override

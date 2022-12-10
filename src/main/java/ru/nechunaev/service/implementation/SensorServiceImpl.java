@@ -25,7 +25,7 @@ public class SensorServiceImpl implements SensorService {
     @Override
     public Sensor save(Sensor sensor) {
         if (isExistsByName(sensor.getName())) {
-            throw new SensorExistsNameException();
+            throw new SensorExistsNameException("a sensor with the same name = " + sensor.getName() + " is already registered");
         }
         sensorRepository.save(sensor);
         return sensor;
@@ -34,7 +34,8 @@ public class SensorServiceImpl implements SensorService {
     @Override
     @Transactional(readOnly = true)
     public Sensor findById(Long id) {
-        return sensorRepository.findById(id).orElseThrow(SensorNotFoundException::new);
+        return sensorRepository.findById(id).orElseThrow(() ->
+                new SensorNotFoundException("sensor with this id = " + id + " not found"));
     }
 
     @Override

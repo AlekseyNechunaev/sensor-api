@@ -10,28 +10,28 @@ public class AddMeasurementRequestDto {
     @NotNull
     @Min(-100)
     @Max(100)
-    private float value;
+    private Float value;
 
     @JsonProperty("raining")
     @NotNull
-    private boolean isRaining;
+    private Boolean isRaining;
 
     @NotNull
     private RegSensorRequestDto sensor;
 
-    public float getValue() {
+    public Float getValue() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(Float value) {
         this.value = value;
     }
 
-    public boolean isRaining() {
+    public Boolean isRaining() {
         return isRaining;
     }
 
-    public void setRaining(boolean raining) {
+    public void setRaining(Boolean raining) {
         isRaining = raining;
     }
 
